@@ -5,6 +5,8 @@ C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.deps.json
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.runtimeconfig.json
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.pdb
+C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Google.Protobuf.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Humanizer.dll
@@ -55,3 +57,5 @@ C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\refint\FilmesAPI.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.pdb
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.genruntimeconfig.cache
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\ref\FilmesAPI.dll
+C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
