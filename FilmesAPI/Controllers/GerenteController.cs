@@ -54,20 +54,20 @@ namespace GerentesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteGerentePorId(int id)
         {
-            GerenteModel Gerente = RecuperaGerente(id);
-            if (Gerente == null)
+            GerenteModel gerente = RecuperaGerente(id);
+            if (gerente == null)
             {
                 return NotFound();
             }
-            _context.Remove(Gerente);
+            _context.Remove(gerente);
             _context.SaveChanges();
             return NoContent();
         }
 
         private GerenteModel RecuperaGerente(int id)
         {
-            GerenteModel Gerente = _context.Gerentes.FirstOrDefault(Gerente => Gerente.Id == id);
-            return Gerente;
+            GerenteModel gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
+            return gerente;
         }
     }
 }
