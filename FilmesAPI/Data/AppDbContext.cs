@@ -12,14 +12,21 @@ namespace FilmesApi.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<Endereco>()
+            builder.Entity<EnderecoModel>()
                 .HasOne(endereco => endereco.Cinema)
                 .WithOne(cinema => cinema.Endereco)
-                .HasForeignKey<Cinema>(cinema => cinema.EnderecoId);
+                .HasForeignKey<CinemaModel>(cinema => cinema.EnderecoId);
+
+            builder.Entity<CinemaModel>()
+                .HasOne(gerente => gerente.Gerente)
+                .WithMany(cinemas => cinemas.Cinemas)
+                .HasForeignKey(cinema => cinema.GerenteId);
         }
 
-        public DbSet<Filme> Filmes { get; set; }
-        public DbSet<Cinema> Cinemas { get; set; }
-        public DbSet<Endereco> Enderecos { get; set; }
+        public DbSet<FilmeModel> Filmes { get; set; }
+        public virtual DbSet<CinemaModel> Cinemas { get; set; }
+        public DbSet<EnderecoModel> Enderecos { get; set; }
+
+        public DbSet<GerenteModel> Gerentes { get; set; }
     }
 }

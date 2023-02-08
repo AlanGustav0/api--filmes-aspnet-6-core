@@ -23,7 +23,7 @@ namespace FilmesAPI.Controllers
         [HttpPost]
         public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
         {
-            Filme filme = _mapper.Map<Filme>(filmeDto);
+            FilmeModel filme = _mapper.Map<FilmeModel>(filmeDto);
             
             _context.Filmes.Add(filme);
             _context.SaveChanges();
@@ -31,7 +31,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Filme> RecuperaFilmes()
+        public IEnumerable<FilmeModel> RecuperaFilmes()
         {
             return _context.Filmes;
         }
@@ -40,7 +40,7 @@ namespace FilmesAPI.Controllers
         public IActionResult RecuperaFilmePorId(int id)
         {
 
-            Filme filme = RecuperaFilme(id);
+            FilmeModel filme = RecuperaFilme(id);
             if(filme != null)
             {
                 ReadFilmeDto readFilme = _mapper.Map<ReadFilmeDto>(filme);
@@ -54,12 +54,12 @@ namespace FilmesAPI.Controllers
         [HttpPut("{id}")]
         public IActionResult AtualizaFilme(int id, [FromBody] UpdateEnderecoDto filmeDto)
         {
-            Filme filme = RecuperaFilme(id);
+            FilmeModel filme = RecuperaFilme(id);
             if(filme == null)
             {
                 return NotFound();
             }
-            filme = _mapper.Map<Filme>(filmeDto);
+            filme = _mapper.Map<FilmeModel>(filmeDto);
 
             _context.SaveChanges();
             return NoContent();
@@ -68,7 +68,7 @@ namespace FilmesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteFilmePorId(int id)
         {
-            Filme filme = RecuperaFilme(id);
+            FilmeModel filme = RecuperaFilme(id);
             if (filme == null)
             {
                 return NotFound();
@@ -78,9 +78,9 @@ namespace FilmesAPI.Controllers
             return NoContent();
         }
 
-        private Filme RecuperaFilme(int id)
+        private FilmeModel RecuperaFilme(int id)
         {
-            Filme filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
+            FilmeModel filme = _context.Filmes.FirstOrDefault(filme => filme.Id == id);
             return filme;
         }
     }
