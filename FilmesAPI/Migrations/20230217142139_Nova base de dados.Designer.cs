@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230208171016_Adicionamento relacionamento Filme Cinema")]
-    partial class AdicionamentorelacionamentoFilmeCinema
+    [Migration("20230217142139_Nova base de dados")]
+    partial class Novabasededados
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -121,7 +121,7 @@ namespace FilmesAPI.Migrations
                     b.Property<int>("CinemaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FilmeID")
+                    b.Property<int>("FilmeId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("HorarioDeEncerramento")
@@ -131,7 +131,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasIndex("CinemaId");
 
-                    b.HasIndex("FilmeID");
+                    b.HasIndex("FilmeId");
 
                     b.ToTable("Sessoes");
                 });
@@ -165,7 +165,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasOne("FilmesAPI.Models.FilmeModel", "Filme")
                         .WithMany("Sessoes")
-                        .HasForeignKey("FilmeID")
+                        .HasForeignKey("FilmeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

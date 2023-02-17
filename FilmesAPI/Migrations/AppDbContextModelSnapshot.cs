@@ -119,7 +119,7 @@ namespace FilmesAPI.Migrations
                     b.Property<int>("CinemaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FilmeID")
+                    b.Property<int>("FilmeId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("HorarioDeEncerramento")
@@ -129,7 +129,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasIndex("CinemaId");
 
-                    b.HasIndex("FilmeID");
+                    b.HasIndex("FilmeId");
 
                     b.ToTable("Sessoes");
                 });
@@ -163,7 +163,7 @@ namespace FilmesAPI.Migrations
 
                     b.HasOne("FilmesAPI.Models.FilmeModel", "Filme")
                         .WithMany("Sessoes")
-                        .HasForeignKey("FilmeID")
+                        .HasForeignKey("FilmeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

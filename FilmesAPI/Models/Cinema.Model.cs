@@ -21,7 +21,7 @@ namespace FilmesAPI.Models
         public virtual GerenteModel Gerente { get; set; }
 
         public int GerenteId { get; set; }
-
+        [JsonIgnore]
         public virtual List<SessaoModel> Sessoes { get; set; }
     }
 }

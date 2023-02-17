@@ -28,7 +28,7 @@ namespace FilmesApi.Data
             builder.Entity<SessaoModel>()
                 .HasOne(sessao => sessao.Filme)
                 .WithMany(filme => filme.Sessoes)
-                .HasForeignKey(sessao => sessao.FilmeID);
+                .HasForeignKey(sessao => sessao.FilmeId);
 
             builder.Entity<SessaoModel>()
                 .HasOne(sessao => sessao.Cinema)

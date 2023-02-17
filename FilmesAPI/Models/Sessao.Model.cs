@@ -12,7 +12,7 @@ namespace FilmesAPI.Models
 
         public virtual FilmeModel Filme { get; set; }
 
-        public int FilmeID { get; set; }
+        public int FilmeId { get; set; }
 
         public int CinemaId { get; set; }
 

@@ -31,9 +31,9 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<FilmeModel> RecuperaFilmes()
+        public IActionResult RecuperaFilmes()
         {
-            return _context.Filmes;
+            return Ok(_context.Filmes.ToList());
         }
 
         [HttpGet("{id}")]
