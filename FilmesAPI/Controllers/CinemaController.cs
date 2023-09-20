@@ -1,9 +1,8 @@
-﻿using AutoMapper;
-using FilmesApi.Data;
-using FilmesAPI.Data.Dtos;
+﻿using FilmesAPI.Data.Dtos;
 using FilmesAPI.Models;
+using FilmesAPI.Services;
+using FluentResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace FilmesAPI.Controllers
 {
@@ -11,24 +10,17 @@ namespace FilmesAPI.Controllers
     [Route("[controller]")]
     public class CinemaController : ControllerBase
     {
-        private AppDbContext _context;
-        private IMapper _mapper;
-
-
-
-        public CinemaController(AppDbContext context, IMapper mapper)
+        private readonly CinemaService _cinemaService;
+        public CinemaController(CinemaService cinemaService)
         {
-            _context = context;
-            _mapper = mapper;
+            _cinemaService = cinemaService;
         }
-  
 
         [HttpPost]
         public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto)
         {
-            CinemaModel cinema = _mapper.Map<CinemaModel>(cinemaDto);
-            _context.Cinemas.Add(cinema);
-            _context.SaveChanges();
+            CinemaModel cinema = _cinemaService.AdicionaCinema(cinemaDto);
+
             return CreatedAtAction(nameof(RecuperaCinemasPorId), new { cinema.Id }, cinema);
         }
 
@@ -36,46 +28,33 @@ namespace FilmesAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult RecuperaCinemasPorId(int id)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if(cinema != null)
+            ReadCinemaDto readCinemaDto = _cinemaService.RecuperaCinemasPorId(id);
+            if(readCinemaDto != null)
             {
-                ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
-                return Ok(cinemaDto);
+                return Ok(readCinemaDto);
             }
             return NotFound();
         }
 
         [HttpGet]
-        public IActionResult RecuperaCinemas([FromQuery] string? nomeDoFilme)
+        public IActionResult RecuperaCinemas([FromQuery] string nomeDoFilme)
         {
-            List<CinemaModel> cinemas = _context.Cinemas.ToList();
-            if(cinemas == null)
+            List<ReadCinemaDto> listCinemaDto = _cinemaService.RecuperaCinemas(nomeDoFilme);
+            if(listCinemaDto == null)
             {
                 return NotFound();
             }
 
-            if (!string.IsNullOrEmpty(nomeDoFilme))
-            {
-                IEnumerable<CinemaModel> query = from cinema in cinemas 
-                            where cinema.Sessoes.Any(sessao => 
-                            sessao.Filme.Titulo == nomeDoFilme)
-                            select cinema;
-                cinemas = query.ToList();
-            }
-            List<ReadCinemaDto> cinemaDto = _mapper.Map<List<ReadCinemaDto>>(cinemas);
-            return Ok(cinemaDto);
+            return Ok(listCinemaDto);
         }
 
         [HttpPut("{id}")]
         public IActionResult AtualizaCinema(int id, [FromBody] UpdateCinemaDto cinemaDto)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if(cinema == null)
-            {
-                return NotFound();
-            }
-            _mapper.Map(cinemaDto, cinema);
-            _context.SaveChanges();
+            Result result = _cinemaService.AtualizaCinema(id,cinemaDto);
+
+            if(result.IsFailed) return NotFound();
+            
             return NoContent();
         }
 
@@ -83,13 +62,10 @@ namespace FilmesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletaCinema(int id)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if (cinema == null)
-            {
-                return NotFound();
-            }
-            _context.Remove(cinema);
-            _context.SaveChanges();
+            Result result = _cinemaService.DeleteCinema(id);
+
+            if (result.IsFailed) return NotFound();
+            
             return NoContent();
         }
 
