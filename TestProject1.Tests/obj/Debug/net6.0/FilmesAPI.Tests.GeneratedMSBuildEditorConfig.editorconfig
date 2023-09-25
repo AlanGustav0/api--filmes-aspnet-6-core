@@ -8,4 +8,4 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FilmesAPI.Tests
-build_property.ProjectDir = C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\
+build_property.ProjectDir = c:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\

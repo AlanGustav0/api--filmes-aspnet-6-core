@@ -29,7 +29,7 @@ namespace FilmesAPI.Services
 
         public ReadCinemaDto? RecuperaCinemasPorId(int id)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            CinemaModel? cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if (cinema != null)
             {
                 ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
@@ -39,7 +39,7 @@ namespace FilmesAPI.Services
             return null;
         }
 
-        public List<ReadCinemaDto> RecuperaCinemas(string nomeDoFilme)
+        public List<ReadCinemaDto>? RecuperaCinemas(string nomeDoFilme)
         {
             List<CinemaModel> cinemas = _context.Cinemas.ToList();
             if (cinemas == null)
@@ -63,7 +63,7 @@ namespace FilmesAPI.Services
 
         public Result AtualizaCinema(int id, UpdateCinemaDto cinemaDto)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            CinemaModel? cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if (cinema == null)
             {
                 return Result.Fail("Cinema não encontrado");
@@ -76,7 +76,7 @@ namespace FilmesAPI.Services
 
         public Result DeleteCinema(int id)
         {
-            CinemaModel cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            CinemaModel? cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if (cinema == null)
             {
                 return Result.Fail("Cinema não encontrado para ser deletado");

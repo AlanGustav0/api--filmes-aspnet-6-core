@@ -28,7 +28,7 @@ namespace FilmesAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult RecuperaCinemasPorId(int id)
         {
-            ReadCinemaDto readCinemaDto = _cinemaService.RecuperaCinemasPorId(id);
+            ReadCinemaDto? readCinemaDto = _cinemaService.RecuperaCinemasPorId(id);
             if(readCinemaDto != null)
             {
                 return Ok(readCinemaDto);
@@ -39,7 +39,7 @@ namespace FilmesAPI.Controllers
         [HttpGet]
         public IActionResult RecuperaCinemas([FromQuery] string nomeDoFilme)
         {
-            List<ReadCinemaDto> listCinemaDto = _cinemaService.RecuperaCinemas(nomeDoFilme);
+            List<ReadCinemaDto>? listCinemaDto = _cinemaService.RecuperaCinemas(nomeDoFilme);
             if(listCinemaDto == null)
             {
                 return NotFound();

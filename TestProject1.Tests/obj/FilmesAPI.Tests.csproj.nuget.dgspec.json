@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj": {}
+    "c:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj": {
+    "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
+        "projectUniqueName": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
         "projectName": "FilmesAPI",
-        "projectPath": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
+        "projectPath": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj",
         "packagesPath": "C:\\Users\\agv_2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\obj\\",
+        "outputPath": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\agv_2\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -102,14 +102,14 @@
         }
       }
     },
-    "C:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj": {
+    "c:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj",
+        "projectUniqueName": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj",
         "projectName": "FilmesAPI.Tests",
-        "projectPath": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj",
+        "projectPath": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\FilmesAPI.Tests.csproj",
         "packagesPath": "C:\\Users\\agv_2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\obj\\",
+        "outputPath": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\TestProject1.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\agv_2\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -126,8 +126,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj": {
-                "projectPath": "C:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj"
+              "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj": {
+                "projectPath": "c:\\Users\\agv_2\\DEV\\FilmesAPI\\FilmesAPI\\FilmesAPI.csproj"
               }
             }
           }

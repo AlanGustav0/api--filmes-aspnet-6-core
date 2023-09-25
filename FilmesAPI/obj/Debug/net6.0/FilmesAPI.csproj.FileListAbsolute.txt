@@ -61,3 +61,5 @@ C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\refint\FilmesAPI.dll
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.pdb
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.genruntimeconfig.cache
 C:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\obj\Debug\net6.0\ref\FilmesAPI.dll
+c:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FluentResults.dll
+c:\Users\agv_2\DEV\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
