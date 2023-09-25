@@ -16,9 +16,9 @@ namespace FilmesAPI.Services
             _mapper = mapper;
         }
 
-        public FilmeModel AdicionaFilme(CreateFilmeDto filmeDto)
+        public Filme AdicionaFilme(CreateFilmeDto filmeDto)
         {
-            FilmeModel filme = _mapper.Map<FilmeModel>(filmeDto);
+            Filme filme = _mapper.Map<Filme>(filmeDto);
 
             _context.Filmes.Add(filme);
             _context.SaveChanges();
@@ -27,7 +27,7 @@ namespace FilmesAPI.Services
         }
         public List<ReadFilmeDto>? RecuperaFilmePorFaixaEtaria(int? classificacaoEtaria)
         {
-            List<FilmeModel> filmes;
+            List<Filme> filmes;
             if (classificacaoEtaria == null)
             {
                 filmes = _context.Filmes.ToList();
@@ -45,7 +45,7 @@ namespace FilmesAPI.Services
 
         public ReadFilmeDto? RecuperaFilmePorId(int id)
         {
-            FilmeModel? filme = RecuperaFilme(id);
+            Filme? filme = RecuperaFilme(id);
             if(filme != null)
             {
                 ReadFilmeDto readFilme = _mapper.Map<ReadFilmeDto>(filme);
@@ -57,7 +57,7 @@ namespace FilmesAPI.Services
 
         public Result AtualizaFilme(int id,UpdateEnderecoDto filmeDto)
         {
-            FilmeModel? filme = RecuperaFilme(id);
+            Filme? filme = RecuperaFilme(id);
             if(filme == null)
             {
                 return Result.Fail("Filme não encontrado");
@@ -67,7 +67,7 @@ namespace FilmesAPI.Services
 
         public Result DeleteFilmePorId(int id)
         {
-            FilmeModel? filme = RecuperaFilme(id);
+            Filme? filme = RecuperaFilme(id);
             if (filme == null)
             {
                 return Result.Fail("Filme não encontrado");
@@ -77,9 +77,9 @@ namespace FilmesAPI.Services
             return Result.Ok();
         }
 
-        private FilmeModel? RecuperaFilme(int id)
+        private Filme? RecuperaFilme(int id)
         {
-            FilmeModel? filme = _context.Filmes?.FirstOrDefault(filme => filme.Id == id);
+            Filme? filme = _context.Filmes?.FirstOrDefault(filme => filme.Id == id);
             return filme;
         } 
     }

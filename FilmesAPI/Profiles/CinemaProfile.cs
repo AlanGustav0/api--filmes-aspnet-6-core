@@ -12,9 +12,9 @@ namespace FilmesAPI.Profiles
     {
         public CinemaProfile()
         {
-            CreateMap<CreateCinemaDto, CinemaModel>();
-            CreateMap<CinemaModel, ReadCinemaDto>();
-            CreateMap<UpdateCinemaDto, CinemaModel>();
+            CreateMap<CreateCinemaDto, Cinema>();
+            CreateMap<Cinema, ReadCinemaDto>();
+            CreateMap<UpdateCinemaDto, Cinema>();
         }
     }
 }

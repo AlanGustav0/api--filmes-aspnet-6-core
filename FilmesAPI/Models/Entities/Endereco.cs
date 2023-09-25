@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace FilmesAPI.Models
 {
-    public class EnderecoModel
+    public class Endereco
     {
         [Key]
         [Required]
@@ -16,6 +16,6 @@ namespace FilmesAPI.Models
         public string Numero { get; set; }
 
         [JsonIgnore]
-        public virtual CinemaModel Cinema { get; set; }
+        public virtual Cinema Cinema { get; set; }
     }
 }

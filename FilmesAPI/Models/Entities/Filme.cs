@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace FilmesAPI.Models
 {
-    public class FilmeModel
+    public class Filme
     {
         [Key]
         [Required]
@@ -19,7 +19,7 @@ namespace FilmesAPI.Models
         public int ClassificacaoEtaria { get; set; }
         public int Duracao { get; set; }
         [JsonIgnore]
-        public virtual List<SessaoModel> Sessoes { get; set; }
+        public virtual List<Sessao> Sessoes { get; set; }
 
         
     }

@@ -21,7 +21,7 @@ namespace FilmesAPI.Tests
                 .Options;
 
             
-            var mockSet = new Mock<DbSet<CinemaModel>>();
+            var mockSet = new Mock<DbSet<Cinema>>();
 
             var mockContext = new Mock<AppDbContext>(options);
             mockContext.Setup(m => m.Cinemas).Returns(mockSet.Object);
@@ -34,7 +34,7 @@ namespace FilmesAPI.Tests
             var cinema = controller.AdicionaCinema(new CreateCinemaDto() { Nome = "Cinema", EnderecoId = 2 });
 
             Assert.NotNull(cinema);
-            mockSet.Verify(m => m.Add(It.IsAny<CinemaModel>()),Times.Once());
+            mockSet.Verify(m => m.Add(It.IsAny<Cinema>()),Times.Once());
             mockContext.Verify(m => m.SaveChanges(),Times.Once());
         }
     }

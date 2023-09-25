@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 
 namespace FilmesAPI.Models
 {
-    public class GerenteModel
+    public class Gerente
     {
         [Key]
         [Required]
@@ -11,6 +11,6 @@ namespace FilmesAPI.Models
         public string Nome { get; set; }
 
         [JsonIgnore]
-        public virtual List<CinemaModel> Cinemas { get; set; }
+        public virtual List<Cinema> Cinemas { get; set; }
     }
 }

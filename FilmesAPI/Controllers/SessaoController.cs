@@ -21,7 +21,7 @@ namespace FilmesAPI.Controllers
         [HttpPost]
         public IActionResult AdicionarSessao([FromBody] CreateSessaoDto sessaoDto) {
 
-            SessaoModel sessao = _mapper.Map<SessaoModel>(sessaoDto);
+            Sessao sessao = _mapper.Map<Sessao>(sessaoDto);
             _context.Sessoes.Add(sessao);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperarSessoesPorId), new { sessao.Id }, sessao);
@@ -30,7 +30,7 @@ namespace FilmesAPI.Controllers
         [HttpGet("{id}")]
         public IActionResult RecuperarSessoesPorId(int id)
         {
-            SessaoModel sessao = _context.Sessoes.FirstOrDefault(sessao => sessao.Id == id);
+            Sessao sessao = _context.Sessoes.FirstOrDefault(sessao => sessao.Id == id);
             if (sessao != null)
             {
                 ReadSessaoDto readSessao = _mapper.Map<ReadSessaoDto>(sessao);

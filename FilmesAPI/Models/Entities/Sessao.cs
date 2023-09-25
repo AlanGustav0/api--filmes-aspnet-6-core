@@ -2,15 +2,15 @@
 
 namespace FilmesAPI.Models
 {
-    public class SessaoModel
+    public class Sessao
     {
         [Key]
         [Required]
         public int Id { get; set; }
 
-        public virtual CinemaModel Cinema { get; set; }
+        public virtual Cinema Cinema { get; set; }
 
-        public virtual FilmeModel Filme { get; set; }
+        public virtual Filme Filme { get; set; }
 
         public int FilmeId { get; set; }
 

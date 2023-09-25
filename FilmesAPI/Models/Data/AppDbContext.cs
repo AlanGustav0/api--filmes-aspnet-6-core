@@ -13,35 +13,35 @@ namespace FilmesApi.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             //Relacionamento 1:1
-            builder.Entity<EnderecoModel>()
+            builder.Entity<Endereco>()
                 .HasOne(endereco => endereco.Cinema)
                 .WithOne(cinema => cinema.Endereco)
-                .HasForeignKey<CinemaModel>(cinema => cinema.EnderecoId);
+                .HasForeignKey<Cinema>(cinema => cinema.EnderecoId);
 
             //Relacionamento 1:n
-            builder.Entity<CinemaModel>()
+            builder.Entity<Cinema>()
                 .HasOne(gerente => gerente.Gerente)
                 .WithMany(cinemas => cinemas.Cinemas)
                 .HasForeignKey(cinema => cinema.GerenteId);
 
             //Relacionamento n:n
-            builder.Entity<SessaoModel>()
+            builder.Entity<Sessao>()
                 .HasOne(sessao => sessao.Filme)
                 .WithMany(filme => filme.Sessoes)
                 .HasForeignKey(sessao => sessao.FilmeId);
 
-            builder.Entity<SessaoModel>()
+            builder.Entity<Sessao>()
                 .HasOne(sessao => sessao.Cinema)
                 .WithMany(cinema => cinema.Sessoes)
                 .HasForeignKey(sessao => sessao.CinemaId);
         }
 
-        public DbSet<FilmeModel> Filmes { get; set; }
-        public virtual DbSet<CinemaModel> Cinemas { get; set; }
-        public DbSet<EnderecoModel> Enderecos { get; set; }
+        public DbSet<Filme> Filmes { get; set; }
+        public virtual DbSet<Cinema> Cinemas { get; set; }
+        public DbSet<Endereco> Enderecos { get; set; }
 
-        public DbSet<GerenteModel> Gerentes { get; set; }
+        public DbSet<Gerente> Gerentes { get; set; }
 
-        public DbSet<SessaoModel> Sessoes { get; set; }
+        public DbSet<Sessao> Sessoes { get; set; }
     }
 }

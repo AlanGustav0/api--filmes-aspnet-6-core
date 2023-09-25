@@ -23,7 +23,7 @@ namespace GerentesAPI.Controllers
         [HttpPost]
         public IActionResult AdicionaGerente([FromBody] CreateGerenteDto gerenteDto)
         {
-            GerenteModel gerente = _mapper.Map<GerenteModel>(gerenteDto);
+            Gerente gerente = _mapper.Map<Gerente>(gerenteDto);
             
             _context.Gerentes.Add(gerente);
             _context.SaveChanges();
@@ -40,7 +40,7 @@ namespace GerentesAPI.Controllers
         public IActionResult RecuperaGerentePorId(int id)
         {
 
-            GerenteModel Gerente = RecuperaGerente(id);
+            Gerente Gerente = RecuperaGerente(id);
             if(Gerente != null)
             {
                 ReadGerenteDto readGerente = _mapper.Map<ReadGerenteDto>(Gerente);
@@ -54,7 +54,7 @@ namespace GerentesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteGerentePorId(int id)
         {
-            GerenteModel gerente = RecuperaGerente(id);
+            Gerente gerente = RecuperaGerente(id);
             if (gerente == null)
             {
                 return NotFound();
@@ -64,9 +64,9 @@ namespace GerentesAPI.Controllers
             return NoContent();
         }
 
-        private GerenteModel RecuperaGerente(int id)
+        private Gerente RecuperaGerente(int id)
         {
-            GerenteModel gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
+            Gerente gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == id);
             return gerente;
         }
     }

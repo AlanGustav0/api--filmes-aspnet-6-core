@@ -19,7 +19,7 @@ namespace FilmesAPI.Controllers
         [HttpPost]
         public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto)
         {
-            CinemaModel cinema = _cinemaService.AdicionaCinema(cinemaDto);
+            Cinema cinema = _cinemaService.AdicionaCinema(cinemaDto);
 
             return CreatedAtAction(nameof(RecuperaCinemasPorId), new { cinema.Id }, cinema);
         }
