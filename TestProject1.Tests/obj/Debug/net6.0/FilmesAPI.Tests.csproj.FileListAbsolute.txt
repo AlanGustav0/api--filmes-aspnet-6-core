@@ -1,4 +1,9 @@
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.csproj.AssemblyReference.cache
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.AssemblyInfoInputs.cache
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.AssemblyInfo.cs
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.csproj.CoreCompileInputs.cache
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\testhost.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\FilmesAPI.deps.json
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\FilmesAPI.runtimeconfig.json
@@ -18,6 +23,7 @@ C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\BouncyCastle.Crypto.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Castle.Core.dll
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\FluentResults.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Google.Protobuf.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\K4os.Compression.LZ4.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\K4os.Compression.LZ4.Streams.dll
@@ -28,6 +34,7 @@ C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.Entit
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Proxies.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.TestPlatform.CoreUtilities.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
@@ -40,7 +47,6 @@ C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Moq.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\MySql.Data.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Ubiety.Dns.Core.dll
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\ZstdNet.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\MySql.EntityFrameworkCore.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\NuGet.Frameworks.dll
@@ -143,14 +149,10 @@ C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\FilmesAPI.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\FilmesAPI.pdb
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.csproj.AssemblyReference.cache
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.AssemblyInfoInputs.cache
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.AssemblyInfo.cs
-C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.csproj.CoreCompileInputs.cache
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.csproj.CopyComplete
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\refint\FilmesAPI.Tests.dll
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.pdb
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\FilmesAPI.Tests.genruntimeconfig.cache
 C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\obj\Debug\net6.0\ref\FilmesAPI.Tests.dll
+C:\Users\agv_2\DEV\FilmesAPI\TestProject1.Tests\bin\Debug\net6.0\ZstdNet.dll

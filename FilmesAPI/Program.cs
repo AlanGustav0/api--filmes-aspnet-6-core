@@ -12,7 +12,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<AppDbContext>(opts => opts.UseLazyLoadingProxies().UseMySQL(builder.Configuration.GetConnectionString("FilmeConnection")));
+var connectionString = builder.Configuration.GetConnectionString("FilmeConnection");
+builder.Services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(connectionString));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
@@ -39,8 +40,7 @@ internal class MyDesignTimeServices : IDesignTimeServices
     public void ConfigureDesignTimeServices(IServiceCollection serviceCollection)
     {
         serviceCollection.AddEntityFrameworkMySQL();
-        new EntityFrameworkRelationalDesignServicesBuilder(serviceCollection)
-            .TryAddCoreServices();
+        new EntityFrameworkRelationalDesignServicesBuilder(serviceCollection).TryAddCoreServices();
     }
 
-}
+};
