@@ -1,9 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
+using UsuariosAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
@@ -13,6 +12,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<UserDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection")));
 builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>()
     .AddEntityFrameworkStores<UserDbContext>();
+
+builder.Services.AddTransient<CadastroService>();
 
 
 
