@@ -11,9 +11,9 @@ builder.Services.AddSwaggerGen();
 // Add service database connection with IdentityServer
 builder.Services.AddDbContext<UserDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection")));
 builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>(
-    //opt => opt.SignIn.RequireConfirmedEmail = true
+    opt => opt.SignIn.RequireConfirmedEmail = true
     )
-    .AddEntityFrameworkStores<UserDbContext>();
+    .AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddTransient<CadastroService>();
 builder.Services.AddTransient<LoginService>();

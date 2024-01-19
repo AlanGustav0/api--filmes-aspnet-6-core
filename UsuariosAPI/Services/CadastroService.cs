@@ -2,6 +2,7 @@
 using FluentResults;
 using Microsoft.AspNetCore.Identity;
 using UsuariosAPI.Data.Dto;
+using UsuariosAPI.Data.Request;
 
 namespace UsuariosAPI.Services
 {
@@ -22,9 +23,25 @@ namespace UsuariosAPI.Services
             IdentityUser<int> usuarioIdentity = _mapper.Map<IdentityUser<int>>(usuario);
             Task<IdentityResult> resultadoIdentity = _userManager.CreateAsync(usuarioIdentity, createUsuarioDto.Password);
 
-            if (resultadoIdentity.Result.Succeeded) return Result.Ok();
+            if (resultadoIdentity.Result.Succeeded)
+            {
+                var codigoAtivacao = _userManager.GenerateEmailConfirmationTokenAsync(usuarioIdentity).Result;
+                return Result.Ok().WithSuccess(codigoAtivacao);
+            }
 
             return Result.Fail("Falha ao cadastrar usuário");
+        }
+
+        public Result AtivaContaUsuario(AtivaContaRequest request)
+        {
+            var identityUser = _userManager.Users.FirstOrDefault(usuario => usuario.Id == request.UsuarioId);
+            var identityResult = _userManager.ConfirmEmailAsync(identityUser, request.CodigoAtivacao).Result;
+
+            if (identityResult.Succeeded)
+            {
+                return Result.Ok();
+            }
+            return Result.Fail("Faha ao ativar conta de usuário");
         }
     }
 }
