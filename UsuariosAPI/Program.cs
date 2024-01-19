@@ -13,7 +13,18 @@ builder.Services.AddDbContext<UserDbContext>(options => options.UseMySQL(builder
 builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>()
     .AddEntityFrameworkStores<UserDbContext>();
 
-builder.Services.AddTransient<CadastroService>();
+builder.Services.AddScoped<CadastroService>();
+builder.Services.AddScoped<LoginService>();
+
+
+// If you want to configure identity password format options
+/*
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 8;
+});*/
 
 
 
