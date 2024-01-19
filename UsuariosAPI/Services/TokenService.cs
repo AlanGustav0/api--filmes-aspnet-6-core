@@ -9,7 +9,6 @@ namespace UsuariosAPI.Services
 {
     public class TokenService
     {
-        public int MyProperty { get; set; }
 
         public Token CreateToken(IdentityUser<int> usuario)
         {

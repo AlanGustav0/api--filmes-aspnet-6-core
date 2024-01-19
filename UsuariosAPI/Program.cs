@@ -10,11 +10,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Add service database connection with IdentityServer
 builder.Services.AddDbContext<UserDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection")));
-builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>()
+builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>(
+    //opt => opt.SignIn.RequireConfirmedEmail = true
+    )
     .AddEntityFrameworkStores<UserDbContext>();
 
-builder.Services.AddScoped<CadastroService>();
-builder.Services.AddScoped<LoginService>();
+builder.Services.AddTransient<CadastroService>();
+builder.Services.AddTransient<LoginService>();
+builder.Services.AddTransient<LogoutService>();
+builder.Services.AddTransient<TokenService>();
 
 
 // If you want to configure identity password format options
