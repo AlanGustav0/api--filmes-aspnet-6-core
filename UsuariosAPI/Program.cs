@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using MySql.EntityFrameworkCore.Extensions;
+using UsuariosAPI.Model;
 using UsuariosAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,9 +17,17 @@ builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>(
     .AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
 
 builder.Services.AddTransient<CadastroService>();
+builder.Services.AddTransient<EmailService>();
 builder.Services.AddTransient<LoginService>();
 builder.Services.AddTransient<LogoutService>();
 builder.Services.AddTransient<TokenService>();
+
+/* Use this configuration to configure Local Secrets on Application
+
+You will need to use the command line (dotnet user-secrets set) to set values in the secret
+*/
+builder.Host.ConfigureAppConfiguration((context, builder) => 
+            builder.AddUserSecrets<Program>());
 
 
 // If you want to configure identity password format options

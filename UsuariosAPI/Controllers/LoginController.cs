@@ -1,6 +1,7 @@
 ﻿using FluentResults;
 using Microsoft.AspNetCore.Mvc;
 using UsuariosAPI.Data.Request;
+using UsuariosAPI.Model;
 using UsuariosAPI.Services;
 
 namespace UsuariosAPI.Controllers
@@ -22,6 +23,16 @@ namespace UsuariosAPI.Controllers
             Result resultado = _loginService.LogaUsuario(loginRequest);
 
             if(resultado.IsFailed) return Unauthorized(resultado.Errors.FirstOrDefault());
+            return Ok(resultado.Successes.FirstOrDefault());
+
+        }
+
+        [HttpPost("/solicita-reset")]
+        public IActionResult SolicitaResetSenhaUsuario(SolicitaResetRequest solicitaResetRequest)
+        {
+            Result resultado = _loginService.SolicitaResetSenhaUsuario(solicitaResetRequest);
+            if(resultado.IsFailed) return Unauthorized(resultado.Errors.FirstOrDefault());
+
             return Ok(resultado.Successes.FirstOrDefault());
 
         }

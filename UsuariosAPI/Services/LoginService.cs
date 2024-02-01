@@ -30,5 +30,10 @@ namespace UsuariosAPI.Services
                 
             return Result.Fail("Login falhou");
         }
+
+        internal Result SolicitaResetSenhaUsuario(SolicitaResetRequest solicitaResetRequest)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
