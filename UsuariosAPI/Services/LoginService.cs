@@ -31,9 +31,18 @@ namespace UsuariosAPI.Services
             return Result.Fail("Login falhou");
         }
 
-        internal Result SolicitaResetSenhaUsuario(SolicitaResetRequest solicitaResetRequest)
+        public Result SolicitaResetSenhaUsuario(SolicitaResetRequest solicitaResetRequest)
         {
-            throw new NotImplementedException();
+            IdentityUser<int> identityUser = _signInManager.UserManager.Users.FirstOrDefault(user => user.NormalizedEmail == solicitaResetRequest.Email.ToUpper());
+
+            if(!string.IsNullOrEmpty(identityUser.Email))
+            {
+                string codigoRecuperacao = _signInManager.UserManager.GeneratePasswordResetTokenAsync(identityUser).Result;
+
+                return Result.Ok().WithSuccess(codigoRecuperacao);
+            }
+
+            return Result.Fail("Falha ao solicitar redefinição");
         }
     }
 }
