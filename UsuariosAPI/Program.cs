@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
+using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
 using UsuariosAPI.Model;
 using UsuariosAPI.Services;
@@ -10,17 +11,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 // Add service database connection with IdentityServer
-builder.Services.AddDbContext<UserDbContext>(options => options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection")));
+builder.Services.AddDbContext<UserDbContext>(options => {
+    options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection"));
+    
+    },ServiceLifetime.Transient);
 builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>(
     opt => opt.SignIn.RequireConfirmedEmail = false
     )
     .AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();
 
-builder.Services.AddTransient<CadastroService>();
-builder.Services.AddTransient<EmailService>();
-builder.Services.AddTransient<LoginService>();
-builder.Services.AddTransient<LogoutService>();
-builder.Services.AddTransient<TokenService>();
+builder.Services.AddScoped<CadastroService>();
+builder.Services.AddScoped<EmailService>();
+builder.Services.AddScoped<LoginService>();
+builder.Services.AddScoped<LogoutService>();
+builder.Services.AddScoped<TokenService>();
 
 /* Use this configuration to configure Local Secrets on Application
 
