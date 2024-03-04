@@ -20,12 +20,6 @@ var connectionString = builder.Configuration.GetConnectionString("FilmeConnectio
 builder.Services.AddDbContext<AppDbContext>(opts => opts.UseMySQL(connectionString));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddScoped<FilmesService>();
-builder.Services.AddScoped<GerenteService>();
-builder.Services.AddScoped<EnderecoService>();
-builder.Services.AddScoped<SessaoService>();
-builder.Services.AddScoped<CinemaService>();
-
 builder.Services.AddAuthentication(auth =>
 {
     auth.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,6 +39,14 @@ builder.Services.AddAuthentication(auth =>
     };
 });
 
+builder.Services.AddScoped<FilmesService>();
+builder.Services.AddScoped<GerenteService>();
+builder.Services.AddScoped<EnderecoService>();
+builder.Services.AddScoped<SessaoService>();
+builder.Services.AddScoped<CinemaService>();
+
+
+
 
 
 var app = builder.Build();
@@ -58,8 +60,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 app.MapControllers();
 
