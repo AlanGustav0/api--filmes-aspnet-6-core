@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.DependencyInjection;
 using MySql.EntityFrameworkCore.Extensions;
 using UsuariosAPI.Model;
+using UsuariosAPI.Model.Entities;
 using UsuariosAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +16,7 @@ builder.Services.AddDbContext<UserDbContext>(options => {
     options.UseMySQL(builder.Configuration.GetConnectionString("UsuarioConnection"));
     
     },ServiceLifetime.Transient);
-builder.Services.AddIdentity<IdentityUser<int>,IdentityRole<int>>(
+builder.Services.AddIdentity<CustomIdentityUser, IdentityRole<int>>(
     opt => opt.SignIn.RequireConfirmedEmail = false
     )
     .AddEntityFrameworkStores<UserDbContext>().AddDefaultTokenProviders();

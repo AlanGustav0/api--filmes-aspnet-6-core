@@ -3,15 +3,16 @@ using FluentResults;
 using Microsoft.AspNetCore.Identity;
 using UsuariosAPI.Data.Request;
 using UsuariosAPI.Model;
+using UsuariosAPI.Model.Entities;
 
 namespace UsuariosAPI.Services
 {
     public class LoginService
     {
-        private SignInManager<IdentityUser<int>> _signInManager;
+        private SignInManager<CustomIdentityUser> _signInManager;
         private TokenService _tokenService;
 
-        public LoginService(SignInManager<IdentityUser<int>> signInManager, TokenService tokenService)
+        public LoginService(SignInManager<CustomIdentityUser> signInManager, TokenService tokenService)
         {
             _signInManager = signInManager;
             _tokenService = tokenService;
@@ -35,7 +36,7 @@ namespace UsuariosAPI.Services
 
         public Result SolicitaResetSenhaUsuario(SolicitaResetRequest solicitaResetRequest)
         {
-            IdentityUser<int> identityUser = RecuperaUsuarioPorEmail(solicitaResetRequest.Email);
+            CustomIdentityUser identityUser = RecuperaUsuarioPorEmail(solicitaResetRequest.Email);
 
             if (!string.IsNullOrEmpty(identityUser.Email))
             {
@@ -50,7 +51,7 @@ namespace UsuariosAPI.Services
 
         public Result ResetSenhaUsuario(EfetuaResetRequest efetuaResetRequest)
         {
-            IdentityUser<int> identityUser = RecuperaUsuarioPorEmail(efetuaResetRequest.Email);
+            CustomIdentityUser identityUser = RecuperaUsuarioPorEmail(efetuaResetRequest.Email);
 
             IdentityResult identityResult = _signInManager.UserManager.ResetPasswordAsync(identityUser, efetuaResetRequest.Token, efetuaResetRequest.Password).Result;
 
@@ -59,7 +60,7 @@ namespace UsuariosAPI.Services
             return Result.Fail("Falha na redefinição de senha");
         }
 
-        private IdentityUser<int> RecuperaUsuarioPorEmail(string email)
+        private CustomIdentityUser RecuperaUsuarioPorEmail(string email)
         {
             return _signInManager.UserManager.Users.FirstOrDefault(user => user.NormalizedEmail == email.ToUpper());
         }

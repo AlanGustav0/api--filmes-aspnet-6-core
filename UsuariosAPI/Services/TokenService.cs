@@ -1,22 +1,23 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using UsuariosAPI.Model;
+using UsuariosAPI.Model.Entities;
 
 namespace UsuariosAPI.Services
 {
     public class TokenService
     {
 
-        public Token CreateToken(IdentityUser<int> usuario, string role)
+        public Token CreateToken(CustomIdentityUser usuario, string role)
         {
             Claim[] direitosUsuario = new Claim[]
             {
                 new Claim("username",usuario.UserName),
                 new Claim("id",usuario.Id.ToString()),
-                new Claim(ClaimTypes.Role, "regular")
+                new Claim(ClaimTypes.Role, "regular"),
+                new Claim(ClaimTypes.DateOfBirth, usuario.DataNascimento.ToString())
 
             };
 
